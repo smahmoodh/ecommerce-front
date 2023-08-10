@@ -1,4 +1,5 @@
-import {useContext, useEffect, useState} from "react";
+import { useContext, useEffect, useState } from "react";
+import Image from "next/image";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -154,11 +155,11 @@ const CartPage = () => {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {products.map(product => (
-                                    <tr>
+                                {products.map((product, index) => (
+                                    <tr key={index}>
                                         <ProductInfoCell>
                                             <ProductImageBox>
-                                                <img src={product.images[0]} alt={product.title}/>
+                                                <Image width={150} height={150} src={product.images[0]} alt={product.title}/>
                                             </ProductImageBox>
                                             {product.title}
                                         </ProductInfoCell>
