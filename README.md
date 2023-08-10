@@ -33,10 +33,10 @@ yarn install
 *توجه داشته باشید که در مرحله قبل از package manager استفاده کردید.*
 
 ```bash
-    npm run dev
+npm run dev
 ```
 ```bash
-    yarn run
+yarn run
 ```
 
 # پکیج ها
