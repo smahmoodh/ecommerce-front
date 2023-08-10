@@ -44,9 +44,13 @@ yarn run
 در این پروژه از پکیج های زیر استفاده شده است:
 
 ![GitHub package.json dependency version (subfolder of monorepo)](https://img.shields.io/github/package-json/dependency-version/smahmoodh/ecommerce-front/next)
+
 ![GitHub package.json dependency version (subfolder of monorepo)](https://img.shields.io/github/package-json/dependency-version/smahmoodh/ecommerce-front/react)
+
 ![GitHub package.json dependency version (subfolder of monorepo)](https://img.shields.io/github/package-json/dependency-version/smahmoodh/ecommerce-front/mongoose)
+
 ![GitHub package.json dependency version (subfolder of monorepo)](https://img.shields.io/github/package-json/dependency-version/smahmoodh/ecommerce-front/styled-components)
+
 ![GitHub package.json dependency version (subfolder of monorepo)](https://img.shields.io/github/package-json/dependency-version/smahmoodh/ecommerce-front/axios)
 
 
