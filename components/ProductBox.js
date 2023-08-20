@@ -2,8 +2,9 @@ import styled from "styled-components";
 import Button from "@/components/Button";
 import Link from "next/link";
 import Image from "next/image";
-import {useContext} from "react";
-import {CartContext} from "@/components/CartContext";
+import { useContext } from "react";
+import { CartContext } from "@/components/CartContext";
+import { seperatNumber, enTofa } from "@/utils/Utilities";
 
 const ProductWrapper = styled.div`
 
@@ -52,14 +53,14 @@ const Price = styled.div`
     font-size: 1.5rem;
   }
 `;
-const ProductBox = ({_id, title, description, price, images}) => {
+const ProductBox = ({ _id, title, description, price, images }) => {
     const url = '/product/' + _id;
-    const {addProduct} = useContext(CartContext);
+    const { addProduct } = useContext(CartContext);
     return (
         <ProductWrapper>
             <WhiteBox href={url}>
                 <div>
-                    <Image width={150} height={150} src={images?.[0]} alt={title}/>
+                    <Image width={150} height={150} src={images?.[0]} alt={title} />
                 </div>
             </WhiteBox>
             <ProductInfoBox>
@@ -68,10 +69,10 @@ const ProductBox = ({_id, title, description, price, images}) => {
                 </Title>
                 <PriceRow>
                     <Price>
-                        ${price}
+                        {enTofa(price)}
                     </Price>
-                    <Button onClick={()=> addProduct(_id)} primary={1} outline={1}>
-                        Add to cart
+                    <Button onClick={() => addProduct(_id)} primary={1} outline={1}>
+                        اضافه به سبد
                     </Button>
                 </PriceRow>
             </ProductInfoBox>

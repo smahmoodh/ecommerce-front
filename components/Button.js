@@ -9,7 +9,7 @@ export const ButtonStyle = css`
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Vazirmatn','Poppins', sans-serif;
   font-weight: bold;
 
   svg {

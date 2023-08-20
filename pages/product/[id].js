@@ -11,6 +11,7 @@ import Button from "@/components/Button";
 import CartIcon from "@/components/icons/CartIcon";
 import {CartContext} from "@/components/CartContext";
 import {useContext} from "react";
+import { enTofa } from "@/utils/Utilities";
 
 const ColWrapper = styled.div`
   display: grid;
@@ -23,6 +24,9 @@ const ColWrapper = styled.div`
   }
   gap: 40px;
   margin: 40px 0;
+`;
+const Desc = styled.p`
+text-align: justify;
 `;
 const PriceRow = styled.div`
   display: flex;
@@ -45,14 +49,15 @@ const ProductPage = ({product}) => {
                     </WhiteBox>
                     <div>
                         <Title>{product.title}</Title>
-                        <p>{product.description}</p>
+                        <Desc>{product.description}</Desc>
                         <PriceRow>
                             <div>
-                               <Price>$ {product.price}</Price>
+                                <Price>{enTofa(product.price)} تومان</Price>
                             </div>
                             <div>
                                 <Button primary={1} onClick={()=> addProduct(product._id)}>
-                                    <CartIcon/> Add to cart
+                                    اضافه به سبد خرید
+                                    <CartIcon />
                                 </Button>
                             </div>
                         </PriceRow>

@@ -10,7 +10,7 @@ font-size: 2rem;
 const NewProducts = ({products}) => {
     return (
         <Center>
-            <Title>New Arrivals</Title>
+            <Title>جدیدترین ها</Title>
             <ProductsGrid products={products}/>
         </Center>
     )
