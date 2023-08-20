@@ -10,6 +10,7 @@ import Button from "@/components/Button";
 import Table from "@/components/Table";
 import Input from "@/components/Input";
 import WhiteBox from "@/components/WhiteBox";
+import { enTofa } from "@/utils/Utilities";
 
 const ColumnsWrapper = styled.div`
   display: grid;
@@ -24,6 +25,7 @@ const ColumnsWrapper = styled.div`
 const ProductInfoCell = styled.td`
   padding: 10px 0;
   font-size: 14px;
+  text-align: right;
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
@@ -126,9 +128,9 @@ const CartPage = () => {
                     <ColumnsWrapper>
                         <WhiteBox>
                             <h1>
-                                Thanks for your order!
+                                از سفارش شما سپاس گزاریم
                             </h1>
-                            <p>we will email you when your order will be sent.</p>
+                            <p>پس از ارسال، اطلاعات پیگیری سفارش برای شما ایمیل خواهد شد.</p>
                         </WhiteBox>
                     </ColumnsWrapper>
                 </Center>
@@ -141,17 +143,17 @@ const CartPage = () => {
             <Center>
                 <ColumnsWrapper>
                     <WhiteBox>
-                        <h2>Cart</h2>
+                        <h2>سبد خرید</h2>
                         {!cartProducts?.length && (
-                            <div>Cart is empty</div>
+                            <div>سبد خرید خالی است.</div>
                         )}
                         {products?.length && (
                             <Table>
                                 <thead>
                                 <tr>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
+                                    <th>کالا</th>
+                                    <th>تعداد</th>
+                                    <th>قیمت (تومان)</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -171,13 +173,13 @@ const CartPage = () => {
                                             <Button onClick={() => increaseQuantity(product._id)}>+</Button>
                                         </td>
                                         <td>
-                                            $ {cartProducts.filter(id => id === product._id).length * product.price}
+                                            {enTofa(cartProducts.filter(id => id === product._id).length * product.price)}
                                         </td>
                                     </tr>
                                 ))}
                                 <tr>
                                     <td colSpan={2}></td>
-                                    <td>$ {total}</td>
+                                        <td>{enTofa(total)}</td>
                                 </tr>
                                 </tbody>
                             </Table>
@@ -185,47 +187,47 @@ const CartPage = () => {
                     </WhiteBox>
                     {!!cartProducts?.length && (
                         <WhiteBox>
-                            <h2>Order Information</h2>
+                            <h2>مشخصات</h2>
                             <form method='post' action='/api/checkout'>
                                 <Input
                                     type="text"
-                                    placeholder='Name'
+                                    placeholder='نام'
                                     value={name}
                                     name='name'
                                     onChange={(e) => setName(e.target.value)}/>
                                 <Input
                                     type="text"
-                                    placeholder='Email'
+                                    placeholder='ایمیل'
                                     value={email}
                                     name='email'
                                     onChange={(e) => setEmail(e.target.value)}/>
                                 <CityHolder>
                                     <Input
                                         type="text"
-                                        placeholder='City'
+                                        placeholder='شهر'
                                         value={city}
                                         name='city'
                                         onChange={(e) => setCity(e.target.value)}/>
                                     <Input
                                         type="text"
-                                        placeholder='Postal Code'
+                                        placeholder='کدپستی'
                                         value={postalCode}
                                         name='postalCode'
                                         onChange={(e) => setPostalCode(e.target.value)}/>
                                 </CityHolder>
                                 <Input
                                     type="text"
-                                    placeholder='Street Address'
+                                    placeholder='آدرس'
                                     value={streetAddress}
                                     name='streetAddress'
                                     onChange={(e) => setStreetAddress(e.target.value)}/>
                                 <Input
                                     type="text"
-                                    placeholder='Country'
+                                    placeholder='کشور'
                                     value={country}
                                     name='country'
                                     onChange={(e) => setCountry(e.target.value)}/>
-                                <Button black={1} block={1} onClick={goToPayment}>Continue to payment</Button>
+                                <Button black={1} block={1} onClick={goToPayment}>پرداخت آنلاین</Button>
                             </form>
                         </WhiteBox>
                     )}

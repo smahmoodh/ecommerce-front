@@ -7,6 +7,7 @@ width: 100%;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
+  font-family: 'Vazirmatn','Poppins', sans-serif;
 `;
 const Input = (props) => {
     return (
