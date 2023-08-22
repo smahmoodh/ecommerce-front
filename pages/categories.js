@@ -3,6 +3,7 @@ import { mongooseConnect } from '@/lib/mongoose'
 import { Category } from '@/models/Category'
 
 import Layout from '@/components/Layout'
+import Link from "next/link";
 
 const CategoriesWrapper = styled.div`
     padding: 25px 0;
@@ -15,7 +16,7 @@ const CategoryCard = styled.div`
     border-radius: 5px;
     box-shadow: 0 0 4px 0px rgba(0 0 0/30%)
 `;
-const ParentTitle = styled.a`
+const ParentTitle = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,9 +62,9 @@ const CategoriesPage = ({ categories }) => {
                                       if (child.parent === item._id) {
                                           return (
                                               <li key={child._id}>
-                                                  <a href={`/products?id=${child._id}`}>
+                                                  <Link href={`/products?id=${child._id}`}>
                                                       {child.name}
-                                                  </a>
+                                                  </Link>
                                               </li>
                                           );
                                       }

@@ -1,8 +1,6 @@
 import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
 
-import Center from "@/components/Center";
-import Header from "@/components/Header";
 import Title from "@/components/Title";
 import styled from "styled-components";
 import WhiteBox from "@/components/WhiteBox";
@@ -14,6 +12,7 @@ import { useContext } from "react";
 import { enTofa } from "@/utils/Utilities";
 import { Category } from "@/models/Category";
 import Layout from "@/components/Layout";
+import Link from "next/link";
 
 const ColWrapper = styled.div`
   display: grid;
@@ -69,7 +68,7 @@ const ProductPage = ({ product, properties }) => {
                         <Title>{product.title}</Title>
                         <p>
                             دسته بندی:&nbsp;
-                            <a href={`/products?id=${product.category._id}`}>{product.category.name}</a>
+                            <Link href={`/products?id=${product.category._id}`}>{product.category.name}</Link>
                         </p>
                         <Desc>{product.description}</Desc>
                         <PropertyList>
