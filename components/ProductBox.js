@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useContext } from "react";
 import { CartContext } from "@/components/CartContext";
-import { seperatNumber, enTofa } from "@/utils/Utilities";
+import { enTofa } from "@/utils/Utilities";
 
 const ProductWrapper = styled.div`
 

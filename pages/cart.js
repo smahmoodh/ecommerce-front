@@ -4,13 +4,13 @@ import styled from "styled-components";
 import axios from "axios";
 
 import {CartContext} from "@/components/CartContext";
-import Header from "@/components/Header";
-import Center from "@/components/Center";
+import Layout from "@/components/Layout";
 import Button from "@/components/Button";
 import Table from "@/components/Table";
 import Input from "@/components/Input";
 import WhiteBox from "@/components/WhiteBox";
 import { enTofa } from "@/utils/Utilities";
+
 
 const ColumnsWrapper = styled.div`
   display: grid;
@@ -123,8 +123,7 @@ const CartPage = () => {
     if (isSuccess) {
         return (
             <>
-                <Header/>
-                <Center>
+                <Layout>
                     <ColumnsWrapper>
                         <WhiteBox>
                             <h1>
@@ -133,14 +132,13 @@ const CartPage = () => {
                             <p>پس از ارسال، اطلاعات پیگیری سفارش برای شما ایمیل خواهد شد.</p>
                         </WhiteBox>
                     </ColumnsWrapper>
-                </Center>
+                </Layout>
             </>
         )
     }
     return (
         <>
-            <Header/>
-            <Center>
+            <Layout>
                 <ColumnsWrapper>
                     <WhiteBox>
                         <h2>سبد خرید</h2>
@@ -233,7 +231,7 @@ const CartPage = () => {
                     )}
 
                 </ColumnsWrapper>
-            </Center>
+            </Layout>
 
         </>
     )
